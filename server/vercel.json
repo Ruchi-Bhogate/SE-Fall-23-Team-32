@@ -7,7 +7,7 @@
 
     }
 ],
-" routes":[
+"routes":[
     {
         "src": "/（.米）",
         "dest": "/"
