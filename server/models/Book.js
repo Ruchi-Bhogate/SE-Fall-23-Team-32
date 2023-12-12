@@ -64,6 +64,11 @@ const bookSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
 },
+active:{
+  type: Boolean,
+  required: true,
+  default: true,
+},
 });
 
 const Book = mongoose.model('Book', bookSchema);

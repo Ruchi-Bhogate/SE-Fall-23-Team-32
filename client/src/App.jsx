@@ -17,6 +17,11 @@ import CartPage from './components/cartPage';
 import PaymentPage from './components/PaymentPage';
 import OrderConfirmationPage from './components/order-confirmation';
 import AdminOrdersPage from './components/AdminDashboard';
+import RentedBooksPage from './components/RentedBooksPage';
+import ProfilePage from './components/ProfilePage';
+import OwnerProfilePage from './components/OwnerProfile';
+import OwnerDashboard from './components/OwnerDashboard';
+import AllPostedBooks from './components/OwnerRentedOut';
 
 function App() {
   return (
@@ -38,6 +43,11 @@ function App() {
             <Route path="/payment" element={<PaymentPage/>}/>
             <Route path="/order-confirmation" element={<OrderConfirmationPage/>}/>
             <Route path="/admindashboard" element={<AdminOrdersPage/>}/>
+            <Route path="/rentedbookspage" element={<RentedBooksPage/>}/>
+            <Route path="/profile" element={<ProfilePage/>}/>
+            <Route path="/ownerprofile" element={<OwnerProfilePage/>}/>
+            <Route path="/ownerdashboard" element={<OwnerDashboard/>}/>
+            <Route path="/rentedoutbooks" element={<AllPostedBooks/>}/>
           </Routes>
       </Router>
   );

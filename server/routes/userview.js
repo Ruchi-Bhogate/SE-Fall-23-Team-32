@@ -66,7 +66,7 @@ router.post('/postbook', verifyToken, upload.single('image'), async (req, res) =
 
 router.get('/browsebooks', async (req, res) => {
   try {
-    const books = await Book.find().populate(); // This will also fetch the username of the owner if needed
+    const books = await Book.find({active:true}).populate();
     //console.log(books);
     res.json(books);
   } catch (error) {
@@ -74,5 +74,8 @@ router.get('/browsebooks', async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+module.exports = router;
+
 
 module.exports = router;

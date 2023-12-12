@@ -26,12 +26,12 @@ function Dashboard() {
       <div className="dashboard-container">
         <div className="summary-section">
           <h2>Summary</h2>
-          <p>Posted Books: {postedBooks.length}</p>
+          {/* <p>Posted Books: {postedBooks.length}</p> */}
           <p>Rented Books: {rentedBooks.length}</p>
         </div>
-        <div className="post-new-book-button">
+        {/* <div className="post-new-book-button">
           <button onClick={handlePostNewBook}>Post New Book</button>
-        </div>
+        </div> */}
         <div className="rented-books-list">
           <h2>Rented Books</h2>
           <ul>
@@ -44,10 +44,10 @@ function Dashboard() {
             ))}
           </ul>
         </div>
-        <div className="earnings-section">
+        {/* <div className="earnings-section">
           <h2>Earnings</h2>
           <p>Total Earnings: ${earnings}</p>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>

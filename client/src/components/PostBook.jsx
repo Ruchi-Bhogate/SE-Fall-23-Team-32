@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import '../styles/PostBook.css';
-import Header from './Header';
+import OwnerHeader from './OwnerHeader';
 import Footer from './Footer';
 //import { useRef } from 'react';
 
@@ -95,7 +95,7 @@ function PostBook() {
 
   return (
     <div>
-     <Header />
+     <OwnerHeader />
     <div className="post-book-container">
     <form onSubmit={handleSubmit} className="post-book-form" enctype="multipart/form-data">
         <div className="form-group">
@@ -140,7 +140,7 @@ function PostBook() {
       </div>
         <div className="form-group">
           <label>Location:</label>
-          <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
+          <LoadScript googleMapsApiKey='AIzaSyAuhAVZf10KG1trTGAtF25hLt7aYkLIAfs'>
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={defaultCenter}

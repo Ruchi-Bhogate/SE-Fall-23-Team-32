@@ -32,7 +32,8 @@ router.put('/orders/:orderId', async (req, res) => {
         const newRentedBook = new RentedBook({
           bookId: item._id, // Make sure this is the book ID
           renterUserId: updatedOrder.userId, // The user who rented the books
-          days: item.days // The number of days for the rental
+          days: item.days, // The number of days for the rental
+          status: 'delivered'
         });
 
         await newRentedBook.save();

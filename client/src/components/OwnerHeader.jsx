@@ -5,6 +5,7 @@ import ChatModal from "./ChatModal";
 
 function Header() {
   const [isModalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <header className="header">
@@ -12,19 +13,16 @@ function Header() {
         <nav>
           <ul className="nav-links">
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/ownerdashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/browsebooks">Browse Books</Link>
+              <Link to="/postbook">PostBook</Link>
             </li>
             <li>
-              <Link to="/rentedbookspage">Rented Books</Link>
+              <Link to="/rentedoutbooks">Rented out Books</Link>
             </li>
             <li>
-              <Link to="/cartpage">Cart</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/ownerprofile">Profile</Link>
             </li>
             <li
               onClick={() => {

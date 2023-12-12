@@ -8,7 +8,7 @@ function Forgot() {
   const sendEmail = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ubook.onrender.com/Forgot', {
+      const response = await axios.post('http://localhost:8080/Forgot', {
         email
       });
       console.log(response.data);

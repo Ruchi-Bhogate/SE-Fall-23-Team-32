@@ -6,12 +6,19 @@ const cors = require('cors');
 const passportSetup = require('./config/passport-setup');
 const authRoutes = require('./routes/auth');
 const path = require('path');
+const http = require('http');  // Add this line
+const socketIo = require('socket.io');  // Add this line
+
 
 require("dotenv").config();
 
 //app
 const app = express();
 // Use session to keep track of login state
+
+const server = http.createServer(app);  // Change this line
+
+const io = socketIo(server);  // Add this line
 
 app.use(require('express-session')({ secret: 'mysecretkey170904', resave: false, saveUninitialized: false }));
 app.use(passportSetup.initialize());
@@ -41,12 +48,23 @@ app.use('/auth', authRoutes);
 app.use("/userview", require('./routes/userview'));
 app.use("/cartview", require('./routes/cartview'));
 app.use("/admin", require('./routes/admin'));
-
+app.use("/rentedbooks", require('./routes/rentedbooks'));
+app.use("/profile", require('./routes/profile'));
+app.use("/rentedout", require('./routes/RentedOutBooks'));
+app.use("/messages", require('./routes/messages'));
 //ports
 //const port  = process.env.PORT || 8080;
 const port = 8080;
+io.on('connection', (socket) => {
+  console.log('A user connected');
 
-// listener
-const server = app.listen(port, () =>
-  console.log(`Server is running on port ${port}`)
+  // Handle disconnection
+  socket.on('disconnect', () => {
+      console.log('User disconnected');
+  });
+});
+server.listen(port, () =>
+    console.log(`Server is running on port ${port}`)
 );
+
+module.exports = { app, server, io };

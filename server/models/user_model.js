@@ -15,7 +15,12 @@ const User = new mongoose.Schema(
   securityQuestion1: {type: String,required: true},
 securityAnswer1: {type: String,required: true},
 securityQuestion2: {type: String,required: true},
-securityAnswer2: {type: String,required: true}
+securityAnswer2: {type: String,required: true},
+reviews: [{
+  reviewerUserId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  rating: Number,
+  comment: String,
+}]
 },
 {collection: 'user-data'})
 

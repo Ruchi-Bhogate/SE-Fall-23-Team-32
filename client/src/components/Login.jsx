@@ -11,7 +11,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ubook.onrender.com/login', {
+      const response = await axios.post('http://localhost:8080/login', {
         emailOrUsername,
         password,
       });
@@ -19,12 +19,15 @@ function Login() {
       if (response.data.token) {
         // Save token in local storage
         localStorage.setItem('token', response.data.token);
-
+        console.log(response.data)
         if(response.data.role === 'admin'){
         // Navigate to home page
         navigate('/adminDashboard');}
-        else{
+        else if(response.data.role === 'user'){
           navigate('/Dashboard');
+        }
+        else{
+          navigate('/OwnerDashboard');
         }
       }
     } catch (error) {
